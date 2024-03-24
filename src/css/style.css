@@ -1,0 +1,299 @@
+@font-face {
+    font-family: chewy;
+    src: url('../fonts/Chewy/Chewy-Regular.ttf');
+}
+
+:root {
+    --main: #2D9596;
+    --sec: #F1FADA;
+    --third: #e4e3e3;
+    --fourth:#9c9ca4;
+    --fifth: #92919c;
+}
+
+body {
+    background-color: var(--sec);
+    overflow: hidden;
+}
+/* Default Start */
+*{
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: chewy, sans-serif;
+}
+/* Default End */
+
+/* Header Start */
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #4b4edb;
+}
+
+header nav  ul{
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+}
+
+header ul li{
+    position: relative;
+    padding: 3px;
+    transition: all .3s ease-in-out;
+}
+
+header ul li:hover{
+    scale: 1.07;
+}
+
+header ul li::before,
+header ul li::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    background-color: #fff;
+    width: 0%;
+    height: 3px;
+    transition: width .3s ease-in-out;
+}
+
+header ul li::before{
+    transform: translateX(-100%);
+}
+
+header ul li:hover::before,
+header ul li:hover::after{
+    width: 50%;
+}
+header nav ul li a{
+    color: white;
+}
+
+header .logo{
+    color: white;
+}
+
+header .logo span{
+    color: #e60808;
+    font-size: 1.3em;
+}
+
+header nav .logo{
+    display: none;
+}
+/* Header End */
+
+/* Question Start */
+div#question{
+    text-align: center;
+}
+
+/* Question End */
+
+/* Choices Start */
+section#choices{
+    padding: 3%;
+}
+
+section#choices .choice{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all .3s ease;
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: rgb(80, 78, 78);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+section#choices .choice:nth-child(4) {
+    margin-bottom: 0;
+}
+
+section#choices .choice:hover{
+    cursor: pointer;
+    background-color: var(--main);
+    color: white;
+}
+/* Choices End */
+
+/* Time Start */
+div#time{
+    position: relative;
+    font-size: 4em;
+    border: 2px solid #3b38d6;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    padding: 3%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+div#time span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Time End */
+
+/* Container Start */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+.container .img {
+    width: 45%;
+    height: 100vh;
+    position: relative;
+}
+
+.container .img .progress {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background-color: var(--third);
+}
+
+.container .img .progress .innerProgress {
+    content:  '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: height .4s ease-in;
+    background-color: var(--main);
+}
+
+.container .text {
+    position: relative;
+    width: 55%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 5%;
+    min-width: 300px;
+} 
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Container End */
+
+#question h1 {
+    font-size: 3rem;
+    text-transform: capitalize;
+    text-align: left;
+    margin-left: 3%;
+    margin-bottom: 2.5%;
+}
+
+#question h3 {
+    text-align: left;
+    margin: 2% 3%;
+}
+
+#end {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    opacity: 0;
+    z-index: -1;
+}
+
+#end .img {
+    width: 50%;
+    height: 100%;
+    background-image: url(../imgs/quiz.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#end .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-color: var(--sec);
+    padding: 0 3%;
+    min-width: 300px;
+}
+
+#end h1 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+#end p {
+    font-size: 2.5rem;
+}
+
+#end button {
+    padding: 30px;
+    background-color: var(--main);
+    color:  var(--sec);
+    border-radius: 70px;
+    font-size: 2.5rem;
+    margin-top: 3%;
+    transition: all .3s ease-in-out;
+}
+
+#end button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 960px) {
+    #end {
+        margin: 0;
+    }
+
+    #end .img,
+    #end .content {
+        width: 100%;
+    }
+
+    #end p {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .container .text,
+    #end .content {
+        width: 100%;
+    }
+
+    .container .img,
+    #end .img {
+        display: none;
+    }
+}
