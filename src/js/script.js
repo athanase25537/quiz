@@ -93,8 +93,8 @@ xhttp.onload = function() {
                     choix.parentElement.style.zIndex = -2; // to make click invalid
 
                     setTimeout(() => {
-                        quizApp();
                         e.target.classList.remove(className);
+                        quizApp();
                         choix.parentElement.style.zIndex = 1;
                     }, 1000);
                 }
