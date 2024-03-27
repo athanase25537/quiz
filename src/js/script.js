@@ -39,9 +39,12 @@ class Quiz
     {
         if(answer === this.getCurrentQuestion().answer){
             this.score++;
+            this.currentIndex++;
+            return true;
         }
 
         this.currentIndex++;
+        return false;
     }
 }
 
@@ -81,9 +84,19 @@ xhttp.onload = function() {
             let choices = quiz.getCurrentQuestion().choices;
             for(let i=0; i<choices.length; i++){
                 let choix = document.getElementById('c' + i);
-                choix.onclick = () => {
-                    quiz.guess(choices[i].trim());
-                    quizApp();
+                choix.onclick = (e) => {
+                    let a = quiz.guess(choices[i].trim());
+                    if(a) className = 'success';
+                    else className = 'failure';
+                    e.target.classList.add(className);
+
+                    choix.parentElement.style.zIndex = -2; // to make click invalid
+
+                    setTimeout(() => {
+                        quizApp();
+                        e.target.classList.remove(className);
+                        choix.parentElement.style.zIndex = 1;
+                    }, 1000);
                 }
                 display('c' + i, choices[i]);
             }

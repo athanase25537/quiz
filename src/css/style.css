@@ -13,7 +13,6 @@
 
 body {
     background-color: var(--sec);
-    overflow: hidden;
 }
 /* Default Start */
 *{
@@ -26,68 +25,6 @@ body {
     font-family: chewy, sans-serif;
 }
 /* Default End */
-
-/* Header Start */
-header{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #4b4edb;
-}
-
-header nav  ul{
-    display: flex;
-    justify-content: space-around;
-    gap: 8px;
-}
-
-header ul li{
-    position: relative;
-    padding: 3px;
-    transition: all .3s ease-in-out;
-}
-
-header ul li:hover{
-    scale: 1.07;
-}
-
-header ul li::before,
-header ul li::after{
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    background-color: #fff;
-    width: 0%;
-    height: 3px;
-    transition: width .3s ease-in-out;
-}
-
-header ul li::before{
-    transform: translateX(-100%);
-}
-
-header ul li:hover::before,
-header ul li:hover::after{
-    width: 50%;
-}
-header nav ul li a{
-    color: white;
-}
-
-header .logo{
-    color: white;
-}
-
-header .logo span{
-    color: #e60808;
-    font-size: 1.3em;
-}
-
-header nav .logo{
-    display: none;
-}
-/* Header End */
 
 /* Question Start */
 div#question{
@@ -108,11 +45,29 @@ section#choices .choice{
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    transition: all .3s ease;
+    transition: background .3s ease;
     font-size: 2rem;
     text-transform: capitalize;
     color: rgb(80, 78, 78);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+section#choices .choice.success {
+    background-color: green;
+    color: white;
+}
+
+section#choices .choice.failure {
+    background-color: red;
+    color: white;
+}
+
+section#choices .choice.choice.success:hover{
+    background-color: green;
+}
+
+section#choices .choice.failure:hover{
+    background-color: red;
 }
 
 section#choices .choice:nth-child(4) {
@@ -201,7 +156,7 @@ div#time span{
 /* Container End */
 
 #question h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: capitalize;
     text-align: left;
     margin-left: 3%;
@@ -263,7 +218,7 @@ div#time span{
     border-radius: 70px;
     font-size: 2.5rem;
     margin-top: 3%;
-    transition: all .3s ease-in-out;
+    transition: scale .3s ease-in-out;
 }
 
 #end button:hover {
