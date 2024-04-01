@@ -112,6 +112,10 @@ div#time span{
     height: 100vh;
 }
 
+.container.hide {
+    display: none;
+}
+
 .container .img {
     width: 45%;
     height: 100vh;
@@ -220,6 +224,12 @@ div#time span{
     font-size: 2.5rem;
     margin-top: 3%;
     transition: scale .3s ease-in-out;
+}
+
+#end.show {
+    opacity: 1;
+    z-index: 2;
+    display: flex;
 }
 
 #end button:hover {

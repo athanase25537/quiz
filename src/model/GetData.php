@@ -5,7 +5,7 @@ class Content{
     public String $question;
     public String $choices;
     public String $answer;
-    public int $id;
+    public int $lvl;
 }
 
 
@@ -20,9 +20,13 @@ class GetData {
         $this->tableName = $tableName;
     }
     
-    public function getContents(){
-        $selectQuery = "SELECT * FROM $this->tableName";
-        $contentsStatement = $this->connection->getConnection()->query($selectQuery);
+    public function getContents(int $lvl){
+        $selectQuery = "SELECT * FROM $this->tableName where lvl = :lvl";
+        $contentsStatement = $this->connection->getConnection()->prepare($selectQuery);
+        $contentsStatement->execute([
+            'lvl' => $lvl
+        ]);
+        
         $contents = [];
         while($row = $contentsStatement->fetch()){
             $content = new Content();

@@ -36,7 +36,7 @@
         <div class="content">
             <h1>Merci d'avoir fait ce quiz</h1>
             <p>Vous avez obtenu <strong id="score"></strong>%</p>
-            <button class="btn" onclick="reStart()">Refaire le quiz</button>
+            <button class="btn">Next Level</button>
         </div>
     </div>
 
