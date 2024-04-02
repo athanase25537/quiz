@@ -31,6 +31,18 @@ div#question{
     text-align: center;
 }
 
+div#question strong {
+    display: flex;
+    justify-content: space-between;
+}
+
+div#question span {
+    display: inline-block;
+}
+
+div#question span i {
+    color: red;
+}
 /* Question End */
 
 /* Choices Start */

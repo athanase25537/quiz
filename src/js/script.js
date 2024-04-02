@@ -112,7 +112,7 @@ function quizApp(quiz, endCont) {
         });
 
     }else{
-        display('progress', 'Question ' + (quiz.currentIndex + 1) + '/' + quiz.questions.length);
+        display('progress', '<strong><span>Question ' + (quiz.currentIndex + 1) + '/' + quiz.questions.length + '</span><span>Level: ' + quiz.lvl + '</span><span><i class="fa-solid fa-heart"></i> ' + quiz.life + '</span></strong>');
         progressBar.style.height = (quiz.currentIndex + 1) * 100 / quiz.questions.length + '%'
         display('q', quiz.getCurrentQuestion().question);
 
@@ -142,7 +142,7 @@ function quizApp(quiz, endCont) {
 
 function display (id, content){
     let element = document.getElementById(id);
-    element.textContent = content;
+    element.innerHTML = content;
 }
 
 function reStart() {
