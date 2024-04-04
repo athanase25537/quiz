@@ -25,7 +25,7 @@ class Quiz
         this.currentIndex = 0;
         this.life = 3;
         this.lvl = 1;
-        this.lvlMax = 3;
+        this.lvlMax = 2;
     }
 
     getCurrentQuestion()
@@ -159,7 +159,18 @@ function makeQuestion(data) {
 
     for(i=0; i<max; i++) {
         d = data[i];
-        questions[i] = new Question(d.question, d.choices.split(','), d.answer);
+        arr = d.choices.split(',');
+        let n = Math.floor(Math.random()*10%4);
+        let j = 0;
+        let newArr = [];
+        while(j<4){
+            if(newArr[n] == undefined) {
+                newArr[n] = arr[j];
+                j++;
+            }
+            n = Math.floor(Math.random()*10%4);
+        }
+        questions[i] = new Question(d.question, newArr, d.answer);
     }
 
     return questions;
